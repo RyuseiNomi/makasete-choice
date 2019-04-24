@@ -1,0 +1,24 @@
+version: '2'
+services:
+  db:
+      container_name: db
+      image: mysql
+      ports:
+        - 3306:3306
+      environment:
+        MYSQL_ROOT_PASSWORD: hogehoge
+  vue:
+    container_name: vue
+    build: ./vue-project
+    ports:
+      - 9000:8080
+    volumes:
+      - .:/app
+    stdin_open: true
+    tty: true
+    command: /bin/sh
+  web:
+    container_name: nginx
+    image: nginx
+    ports:
+      - 8081:8081
