@@ -7,6 +7,15 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(
     private val navigator: NavigationController
 ) : ViewModel() {
+
+    fun onClickMakeTable() {
+        navigator.moveMakeTable()
+    }
+
+    fun onClickMakeGroup() {
+        navigator.moveMakeGroup()
+    }
+
     companion object {
         private val TAG = HomeViewModel::class.java.simpleName
     }
