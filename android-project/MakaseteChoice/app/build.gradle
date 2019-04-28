@@ -32,6 +32,8 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$supportLibVersion"
     //ConstraintLayout
     implementation "androidx.constraintlayout:constraintlayout:1.1.3"
+    //RecyclerView
+    implementation "androidx.recyclerview:recyclerview:$supportLibVersion"
     //annotation
     implementation "androidx.annotation:annotation:$supportLibVersion"
     //ViewModel
