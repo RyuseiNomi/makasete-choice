@@ -1,6 +1,7 @@
 package com.teambrack.makasetechoice.di
 
 import com.teambrack.makasetechoice.MakaseteChoiceApplication
+import com.teambrack.makasetechoice.di.modules.MainActivityModule
 import com.teambrack.makasetechoice.di.modules.ViewModelModule
 import dagger.BindsInstance
 import dagger.Component
@@ -12,6 +13,7 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,
+        MainActivityModule::class,
         ViewModelModule::class
     ]
 )
