@@ -30,4 +30,10 @@ class HomeFragment : DaggerFragment() {
             binding.viewModel = viewModel
         }.root
     }
+
+    companion object {
+        val FRAGMENT_TAG = HomeFragment::class.java.simpleName
+
+        fun newInstance() = HomeFragment()
+    }
 }
