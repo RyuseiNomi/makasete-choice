@@ -1,12 +1,15 @@
 package com.teambrack.makasetechoice
 
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.teambrack.makasetechoice.data.MemberEntity
+import com.teambrack.makasetechoice.data.repository.MemberRepository
 import com.teambrack.makasetechoice.maketable.MakeTableFragment
 import javax.inject.Inject
 
 class NavigationController @Inject constructor(
-    private val activity: AppCompatActivity
+    private val activity: AppCompatActivity,
+    private val memberRepository: MemberRepository
 ) {
     fun moveMakeTable() {
         activity.supportFragmentManager.beginTransaction().apply {
@@ -21,7 +24,11 @@ class NavigationController @Inject constructor(
     }
 
     fun saveMember(members: List<MemberEntity>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (memberRepository.saveMembers(members)) {
+            Toast.makeText(activity, "保存が成功しました。", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(activity, "保存が失敗しました。", Toast.LENGTH_LONG).show()
+        }
     }
 
 }
