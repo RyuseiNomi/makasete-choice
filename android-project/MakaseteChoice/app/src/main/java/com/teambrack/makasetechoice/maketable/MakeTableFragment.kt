@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.teambrack.makasetechoice.R
 import com.teambrack.makasetechoice.databinding.FragmentMakeTableBinding
 import dagger.android.support.DaggerFragment
+import kotlinx.android.synthetic.main.fragment_make_table.view.*
 import javax.inject.Inject
 
 class MakeTableFragment : DaggerFragment() {
@@ -29,6 +32,28 @@ class MakeTableFragment : DaggerFragment() {
             binding.viewModel = viewModel
         }.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //adapterのインスタンス作成
+        val makeTableAdapter = MakeTableAdapter(viewModel)
+        //adapterのセットアップ
+        setupMakeTableAdapter(view.member_list, makeTableAdapter)
+    }
+
+    private fun setupMakeTableAdapter(recyclerView: RecyclerView, adapter: MakeTableAdapter) {
+        GridLayoutManager(
+            requireContext(),
+            viewModel.getMembers().size,
+            RecyclerView.VERTICAL,
+            false
+        ).also {
+            recyclerView.layoutManager = it
+            recyclerView.adapter = adapter
+        }
+    }
+
 
     companion object {
         val FRAGMENT_TAG = MakeTableFragment::class.java.simpleName

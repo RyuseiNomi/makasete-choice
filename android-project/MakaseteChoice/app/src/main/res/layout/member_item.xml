@@ -4,6 +4,9 @@
         <variable
                 type="com.teambrack.makasetechoice.maketable.MakeTableViewModel"
                 name="viewModel"/>
+        <variable
+                type="com.teambrack.makasetechoice.data.MemberEntity"
+                name="member"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
