@@ -30,13 +30,4 @@ class MakeTableAdapter(
     inner class MakeTableViewHolder(root: View) : RecyclerView.ViewHolder(root) {
         val binding = DataBindingUtil.bind<MemberItemBinding>(root)
     }
-
-    companion object {
-        @JvmStatic
-        @BindingAdapter("items")
-        fun RecyclerView.bindItems(items: List<MemberEntity>?) {
-            if (items.isNullOrEmpty()) return
-            adapter?.notifyDataSetChanged()
-        }
-    }
 }
