@@ -8,7 +8,7 @@ import javax.inject.Inject
 class MakeTableViewModel @Inject constructor(
     private val navigator: NavigationController
 ) : ViewModel() {
-    private val members = mutableListOf<MemberEntity>()
+    private val members = mutableListOf<MemberEntity>(MemberEntity(""))
 
     fun addMember(memberEntity: MemberEntity) {
         members.add(memberEntity)
