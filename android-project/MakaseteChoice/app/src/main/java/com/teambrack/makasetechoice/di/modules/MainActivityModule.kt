@@ -11,7 +11,8 @@ interface MainActivityModule {
     @ContributesAndroidInjector(
         modules = [
             MainActivitySubModule::class,
-            HomeFragmentModule::class
+            HomeFragmentModule::class,
+            MakeTableFragmentModule::class
         ]
     )
     fun contributeMainActivity(): MainActivity
