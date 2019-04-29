@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.teambrack.makasetechoice.R
 import com.teambrack.makasetechoice.databinding.FragmentMakeTableBinding
@@ -30,6 +30,7 @@ class MakeTableFragment : DaggerFragment() {
             false
         ).also { binding ->
             binding.viewModel = viewModel
+            binding.lifecycleOwner = this
         }.root
     }
 
@@ -43,9 +44,8 @@ class MakeTableFragment : DaggerFragment() {
     }
 
     private fun setupMakeTableAdapter(recyclerView: RecyclerView, adapter: MakeTableAdapter) {
-        GridLayoutManager(
+        LinearLayoutManager(
             requireContext(),
-            viewModel.getMembers().size,
             RecyclerView.VERTICAL,
             false
         ).also {

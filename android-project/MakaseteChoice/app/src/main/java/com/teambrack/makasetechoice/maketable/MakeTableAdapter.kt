@@ -3,9 +3,11 @@ package com.teambrack.makasetechoice.maketable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.teambrack.makasetechoice.R
+import com.teambrack.makasetechoice.data.MemberEntity
 import com.teambrack.makasetechoice.databinding.MemberItemBinding
 
 class MakeTableAdapter(
@@ -22,10 +24,19 @@ class MakeTableAdapter(
     override fun onBindViewHolder(holder: MakeTableViewHolder, position: Int) {
         if (holder.binding == null) return
         holder.binding.viewModel = viewModel
-        holder.binding.member = viewModel.getMembers()[position]
+        holder.binding.position = position
     }
 
     inner class MakeTableViewHolder(root: View) : RecyclerView.ViewHolder(root) {
         val binding = DataBindingUtil.bind<MemberItemBinding>(root)
+    }
+
+    companion object {
+        @JvmStatic
+        @BindingAdapter("items")
+        fun RecyclerView.bindItems(items: List<MemberEntity>?) {
+            if (items.isNullOrEmpty()) return
+            adapter?.notifyDataSetChanged()
+        }
     }
 }
