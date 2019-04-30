@@ -3,7 +3,7 @@ package com.teambrack.makasetechoice.maketable
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.ViewModel
 import com.teambrack.makasetechoice.NavigationController
-import com.teambrack.makasetechoice.data.MemberEntity
+import com.teambrack.makasetechoice.data.entity.MemberEntity
 import javax.inject.Inject
 
 class MakeTableViewModel @Inject constructor(

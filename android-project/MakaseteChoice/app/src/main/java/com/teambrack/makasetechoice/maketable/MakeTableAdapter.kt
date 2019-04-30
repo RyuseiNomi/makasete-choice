@@ -3,11 +3,9 @@ package com.teambrack.makasetechoice.maketable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.teambrack.makasetechoice.R
-import com.teambrack.makasetechoice.data.MemberEntity
 import com.teambrack.makasetechoice.databinding.MemberItemBinding
 
 class MakeTableAdapter(

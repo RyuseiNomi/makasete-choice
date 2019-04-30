@@ -2,7 +2,7 @@ package com.teambrack.makasetechoice
 
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.teambrack.makasetechoice.data.MemberEntity
+import com.teambrack.makasetechoice.data.entity.MemberEntity
 import com.teambrack.makasetechoice.data.repository.MemberRepository
 import com.teambrack.makasetechoice.maketable.MakeTableFragment
 import javax.inject.Inject

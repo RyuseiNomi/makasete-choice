@@ -1,6 +1,6 @@
 package com.teambrack.makasetechoice.data.repository
 
-import com.teambrack.makasetechoice.data.MemberEntity
+import com.teambrack.makasetechoice.data.entity.MemberEntity
 
 class MemberCacheRepository : MemberRepository {
     private var cacheMembers: List<MemberEntity> = listOf()

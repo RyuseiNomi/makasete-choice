@@ -2,8 +2,8 @@ package com.teambrack.makasetechoice.makegroup
 
 import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.ViewModel
-import com.teambrack.makasetechoice.data.MemberEntity
+import com.teambrack.makasetechoice.data.entity.MemberEntity
 
-class MakeGroupViewModel : ViewModel(){
+class MakeGroupViewModel : ViewModel() {
     val members = ObservableArrayList<MemberEntity>()
 }
