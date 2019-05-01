@@ -4,6 +4,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.teambrack.makasetechoice.data.entity.MemberEntity
 import com.teambrack.makasetechoice.data.repository.MemberRepository
+import com.teambrack.makasetechoice.makegroup.MakeGroupFragment
 import com.teambrack.makasetechoice.maketable.MakeTableFragment
 import javax.inject.Inject
 
@@ -20,7 +21,11 @@ class NavigationController @Inject constructor(
     }
 
     fun moveMakeGroup() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        activity.supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment_area, MakeGroupFragment.newInstance(), MakeGroupFragment.FRAGMENT_TAG)
+            addToBackStack(MakeGroupFragment.FRAGMENT_TAG)
+            commit()
+        }
     }
 
     fun saveMember(members: List<MemberEntity>) {
