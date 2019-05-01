@@ -12,7 +12,8 @@ interface MainActivityModule {
         modules = [
             MainActivitySubModule::class,
             HomeFragmentModule::class,
-            MakeTableFragmentModule::class
+            MakeTableFragmentModule::class,
+            MakeGroupFragmentModule::class
         ]
     )
     fun contributeMainActivity(): MainActivity
