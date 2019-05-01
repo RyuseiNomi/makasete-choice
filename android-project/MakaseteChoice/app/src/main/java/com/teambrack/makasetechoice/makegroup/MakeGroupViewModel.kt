@@ -15,6 +15,10 @@ class MakeGroupViewModel @Inject constructor(
     val grouping = MutableLiveData<List<GroupingEntity>>()
     val groupingNumber = 1
 
+    fun onLoad() {
+        members.addAll(repository.loadMembers())
+    }
+
     fun onClickShuffleButton() {
         grouping.value = shuffleMembers(groupingNumber, members)
     }

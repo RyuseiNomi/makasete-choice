@@ -23,6 +23,11 @@ class MakeGroupFragment : DaggerFragment() {
         ViewModelProviders.of(requireActivity(), viewModelFactory).get(MakeGroupViewModel::class.java)
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.onLoad()
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return DataBindingUtil.inflate<FragmentMakeGroupBinding>(
             inflater,
