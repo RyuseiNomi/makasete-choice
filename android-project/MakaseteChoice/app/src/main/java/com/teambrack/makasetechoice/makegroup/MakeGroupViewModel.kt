@@ -1,6 +1,7 @@
 package com.teambrack.makasetechoice.makegroup
 
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.teambrack.makasetechoice.data.entity.GroupingEntity
@@ -13,14 +14,16 @@ class MakeGroupViewModel @Inject constructor(
 ) : ViewModel() {
     val members = ObservableArrayList<MemberEntity>()
     val grouping = MutableLiveData<List<GroupingEntity>>()
-    val groupingNumber = 1
+    val selectIndex = ObservableInt(1)
+    val groupingNumbers = ObservableArrayList<Int>()
 
     fun onLoad() {
         members.addAll(repository.loadMembers())
+        groupingNumbers.addAll((1..members.size).toList())
     }
 
     fun onClickShuffleButton() {
-        grouping.value = shuffleMembers(groupingNumber, members)
+        grouping.value = shuffleMembers(groupingNumbers[selectIndex.get()], members)
     }
 
     private fun shuffleMembers(groupingNumber: Int, members: List<MemberEntity>): List<GroupingEntity> {
