@@ -1,5 +1,5 @@
 package com.teambrack.makasetechoice.data.entity
 
 data class MemberEntity(
-    val name: String
+    var name: String
 ) : MakaseteChoiceEntity
