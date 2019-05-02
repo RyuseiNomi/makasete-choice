@@ -41,6 +41,7 @@ class MemberGroupAdapter(
         fun setListView(members: List<MemberEntity>) {
             root.group_member.adapter =
                 ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, members.map { it.name })
+            root.group_member.setListViewHeightBasedOnChildren()
         }
     }
 }
