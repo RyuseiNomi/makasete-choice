@@ -11,6 +11,7 @@ import com.teambrack.makasetechoice.R
 import com.teambrack.makasetechoice.data.entity.GroupingEntity
 import com.teambrack.makasetechoice.data.entity.MemberEntity
 import com.teambrack.makasetechoice.databinding.GroupRowBinding
+import com.teambrack.makasetechoice.ext.setListViewHeightBasedOnChildren
 import kotlinx.android.synthetic.main.group_row.view.*
 
 class MemberGroupAdapter(
@@ -22,7 +23,7 @@ class MemberGroupAdapter(
         return MemberGroupViewHolder(parent.context, view)
     }
 
-    override fun getItemCount() = 0
+    override fun getItemCount() = viewModel.grouping.value?.size ?: 0
 
     override fun onBindViewHolder(holder: MemberGroupViewHolder, position: Int) {
         if (holder.binding == null) return
