@@ -42,6 +42,11 @@ class MakeGroupFragment : DaggerFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.member_list.adapter = ArrayAdapter<String>(
+            requireContext(),
+            android.R.layout.simple_list_item_1,
+            viewModel.members.map { it.name }.toList()
+        )
 
         //adapterのインスタンス作成
         val memberGroupAdapter = MemberGroupAdapter(viewModel)
