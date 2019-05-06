@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MakaseteChoice</string>
+    <string name="make_table">生徒表作成</string>
+    <string name="make_group">グループ作成</string>
+    <string name="save">Save</string>
+    <string name="minus">-</string>
+    <string name="add">+</string>
+    <string name="group_text">組み分け数</string>
+    <string name="grouping_button_text">組み分け</string>
 </resources>

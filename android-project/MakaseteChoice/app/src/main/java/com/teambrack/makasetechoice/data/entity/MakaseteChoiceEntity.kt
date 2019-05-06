@@ -1,0 +1,3 @@
+package com.teambrack.makasetechoice.data.entity
+
+interface MakaseteChoiceEntity
