@@ -33,7 +33,8 @@ class MakeTableViewModel @Inject constructor(
     }
 
     fun addEmptyMember() {
-        members.add(MemberEntity(""))
+        val maxId = members.maxBy { it.id }?.id?.plus(1) ?: 0
+        members.add(MemberEntity(maxId, ""))
     }
 
     fun onClickSave() {
