@@ -11,6 +11,9 @@ class MakeTableViewModel @Inject constructor(
     private val navigator: NavigationController,
     private val repository: MemberRepository
 ) : ViewModel() {
+    /**
+     * データが可変なため`ObservableArrayList`を用いるようにしてある
+     */
     val members = ObservableArrayList<MemberEntity>()
 
     fun onLoad() {
