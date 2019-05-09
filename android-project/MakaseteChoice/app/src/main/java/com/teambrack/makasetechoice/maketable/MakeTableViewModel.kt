@@ -27,9 +27,6 @@ class MakeTableViewModel @Inject constructor(
         }
     }
 
-    fun addMember(memberEntity: MemberEntity) {
-        members.add(memberEntity)
-    }
 
     fun removeMember(index: Int) {
         if (members.size == 1) return
@@ -37,12 +34,10 @@ class MakeTableViewModel @Inject constructor(
     }
 
     fun addEmptyMember() {
-        addMember(MemberEntity(""))
+        members.add(MemberEntity(""))
     }
 
-    fun getMembers(): List<MemberEntity> = members.toList()
-
     fun onClickSave() {
-        navigator.saveMember(getMembers())
+        navigator.saveMember(members)
     }
 }

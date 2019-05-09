@@ -23,11 +23,11 @@ class MemberGroupAdapter(
         return MemberGroupViewHolder(parent.context, view)
     }
 
-    override fun getItemCount() = viewModel.grouping.value?.size ?: 0
+    override fun getItemCount() = viewModel.groupedMembers.value?.size ?: 0
 
     override fun onBindViewHolder(holder: MemberGroupViewHolder, position: Int) {
         if (holder.binding == null) return
-        val group = viewModel.grouping.value?.get(position) ?: GroupingEntity("", emptyList())
+        val group = viewModel.groupedMembers.value?.get(position) ?: GroupingEntity("", emptyList())
         holder.binding.number = group.number
         holder.setListView(group.members)
     }

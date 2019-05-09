@@ -11,24 +11,23 @@ class MakeGroupViewModel @Inject constructor(
     private val repository: MemberRepository
 ) : ViewModel() {
     val members = MutableLiveData<List<MemberEntity>>()
-    val grouping = MutableLiveData<List<GroupingEntity>>()
+    val groupedMembers = MutableLiveData<List<GroupingEntity>>()
     val selectIndex = MutableLiveData<Int>()
-    val groupingNumbers = MutableLiveData<List<Int>>()
+    val groupedNumberList = MutableLiveData<List<Int>>()
+    private val groupedNumber: Int
+        get() = groupedNumberList.value?.get(selectIndex.value ?: 0) ?: 1
 
     fun onLoad() {
         members.value = repository.loadMembers().also { members ->
-            groupingNumbers.value = (1..members.size).toList()
+            groupedNumberList.value = (1..members.size).toList()
         }
     }
 
     fun onClickShuffleButton() {
-        grouping.value = shuffleMembers(
-            groupingNumbers.value?.get(selectIndex.value ?: 0) ?: 1,
-            members.value ?: listOf()
-        )
+        groupedMembers.value = groupMembers(groupedNumber, members.value ?: listOf())
     }
 
-    private fun shuffleMembers(groupingNumber: Int, members: List<MemberEntity>): List<GroupingEntity> {
+    private fun groupMembers(groupingNumber: Int, members: List<MemberEntity>): List<GroupingEntity> {
         return members.shuffled().let { shuffleMembers ->
             shuffleMembers.mapIndexed { index, memberEntity ->
                 index to memberEntity
