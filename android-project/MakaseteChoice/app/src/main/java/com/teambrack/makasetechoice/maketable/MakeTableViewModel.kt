@@ -27,10 +27,9 @@ class MakeTableViewModel @Inject constructor(
         }
     }
 
-
-    fun removeMember(index: Int) {
+    fun removeMember(member: MemberEntity) {
         if (members.size == 1) return
-        members.removeAt(index)
+        members.indexOf(member).also { position -> members.removeAt(position) }
     }
 
     fun addEmptyMember() {
