@@ -2,12 +2,14 @@ package com.teambrack.makasetechoice.makegroup
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.teambrack.makasetechoice.NavigationController
 import com.teambrack.makasetechoice.data.entity.GroupingEntity
 import com.teambrack.makasetechoice.data.entity.MemberEntity
 import com.teambrack.makasetechoice.data.repository.MemberRepository
 import javax.inject.Inject
 
 class MakeGroupViewModel @Inject constructor(
+    private val navigator: NavigationController,
     private val repository: MemberRepository
 ) : ViewModel() {
     val members = MutableLiveData<List<MemberEntity>>()
@@ -24,6 +26,10 @@ class MakeGroupViewModel @Inject constructor(
     }
 
     fun onClickShuffleButton() {
+        if (members.value.isNullOrEmpty()) {
+            navigator.showError()
+            return
+        }
         groupedMembers.value = groupMembers(groupedNumber, members.value ?: listOf())
     }
 

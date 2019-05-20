@@ -36,4 +36,8 @@ class NavigationController @Inject constructor(
         }
     }
 
+    fun showError() {
+        Toast.makeText(activity, "生徒表を登録してから組み分けを行ってください。", Toast.LENGTH_LONG).show()
+    }
+
 }
