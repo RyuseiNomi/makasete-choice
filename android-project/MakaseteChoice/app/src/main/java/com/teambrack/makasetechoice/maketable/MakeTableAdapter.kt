@@ -17,12 +17,12 @@ class MakeTableAdapter(
         return MakeTableViewHolder(view)
     }
 
-    override fun getItemCount() = viewModel.getMembers().size
+    override fun getItemCount() = viewModel.members.size
 
     override fun onBindViewHolder(holder: MakeTableViewHolder, position: Int) {
         if (holder.binding == null) return
         holder.binding.viewModel = viewModel
-        holder.binding.position = position
+        holder.binding.member = viewModel.members[position]
     }
 
     inner class MakeTableViewHolder(root: View) : RecyclerView.ViewHolder(root) {

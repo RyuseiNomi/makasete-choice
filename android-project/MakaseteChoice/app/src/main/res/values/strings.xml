@@ -7,4 +7,7 @@
     <string name="add">+</string>
     <string name="group_text">組み分け数</string>
     <string name="grouping_button_text">組み分け</string>
+    <string name="save_success">保存が成功しました。</string>
+    <string name="save_error">保存が失敗しました。</string>
+    <string name="empty_member_error">生徒表を登録してから組み分けを行ってください。</string>
 </resources>

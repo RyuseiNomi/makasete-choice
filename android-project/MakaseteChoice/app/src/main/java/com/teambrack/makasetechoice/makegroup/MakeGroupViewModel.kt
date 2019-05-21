@@ -1,32 +1,39 @@
 package com.teambrack.makasetechoice.makegroup
 
-import androidx.databinding.ObservableArrayList
-import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.teambrack.makasetechoice.NavigationController
 import com.teambrack.makasetechoice.data.entity.GroupingEntity
 import com.teambrack.makasetechoice.data.entity.MemberEntity
 import com.teambrack.makasetechoice.data.repository.MemberRepository
 import javax.inject.Inject
 
 class MakeGroupViewModel @Inject constructor(
+    private val navigator: NavigationController,
     private val repository: MemberRepository
 ) : ViewModel() {
-    val members = ObservableArrayList<MemberEntity>()
-    val grouping = MutableLiveData<List<GroupingEntity>>()
-    val selectIndex = ObservableInt(1)
-    val groupingNumbers = ObservableArrayList<Int>()
+    val members = MutableLiveData<List<MemberEntity>>()
+    val groupedMembers = MutableLiveData<List<GroupingEntity>>()
+    val selectIndex = MutableLiveData<Int>()
+    val groupedNumberList = MutableLiveData<List<Int>>()
+    private val groupedNumber: Int
+        get() = groupedNumberList.value?.get(selectIndex.value ?: 0) ?: 1
 
     fun onLoad() {
-        members.addAll(repository.loadMembers())
-        groupingNumbers.addAll((1..members.size).toList())
+        members.value = repository.loadMembers().also { members ->
+            groupedNumberList.value = (1..members.size).toList()
+        }
     }
 
     fun onClickShuffleButton() {
-        grouping.value = shuffleMembers(groupingNumbers[selectIndex.get()], members)
+        if (members.value.isNullOrEmpty()) {
+            navigator.showError()
+            return
+        }
+        groupedMembers.value = groupMembers(groupedNumber, members.value ?: listOf())
     }
 
-    private fun shuffleMembers(groupingNumber: Int, members: List<MemberEntity>): List<GroupingEntity> {
+    private fun groupMembers(groupingNumber: Int, members: List<MemberEntity>): List<GroupingEntity> {
         return members.shuffled().let { shuffleMembers ->
             shuffleMembers.mapIndexed { index, memberEntity ->
                 index to memberEntity

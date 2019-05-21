@@ -45,7 +45,7 @@ class MakeGroupFragment : DaggerFragment() {
         view.member_list.adapter = ArrayAdapter<String>(
             requireContext(),
             android.R.layout.simple_list_item_1,
-            viewModel.members.map { it.name }.toList()
+            viewModel.members.value?.map { it.name }?.toList() ?: emptyList()
         )
 
         //adapterのインスタンス作成

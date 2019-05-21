@@ -30,10 +30,14 @@ class NavigationController @Inject constructor(
 
     fun saveMember(members: List<MemberEntity>) {
         if (memberRepository.saveMembers(members)) {
-            Toast.makeText(activity, "保存が成功しました。", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, activity.getString(R.string.save_success), Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(activity, "保存が失敗しました。", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, activity.getString(R.string.save_error), Toast.LENGTH_LONG).show()
         }
+    }
+
+    fun showError() {
+        Toast.makeText(activity, activity.getString(R.string.empty_member_error), Toast.LENGTH_LONG).show()
     }
 
 }
