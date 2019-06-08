@@ -2,8 +2,8 @@
     <string name="app_name">MakaseteChoice</string>
     <string name="home_name">まかせて⭐︎ちょいす</string>
     <string name="make_group_name">グループ作成</string>
-    <string name="make_table_name">生徒表作成</string>
-    <string name="make_table">生徒表作成</string>
+    <string name="make_table_name">メンバー作成</string>
+    <string name="make_table">メンバー作成</string>
     <string name="make_group">グループ作成</string>
     <string name="save">Save</string>
     <string name="minus">-</string>
@@ -12,5 +12,5 @@
     <string name="grouping_button_text">組み分け</string>
     <string name="save_success">保存が成功しました。</string>
     <string name="save_error">保存が失敗しました。</string>
-    <string name="empty_member_error">生徒表を登録してから組み分けを行ってください。</string>
+    <string name="empty_member_error">メンバーを登録してから組み分けを行ってください。</string>
 </resources>
