@@ -17,8 +17,16 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".makegroup.MakeGroupActivity"/>
-        <activity android:name=".maketable.MakeTableActivity"/>
+        <activity android:name=".makegroup.MakeGroupActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity"/>
+        </activity>
+        <activity android:name=".maketable.MakeTableActivity">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity"/>
+        </activity>
     </application>
 
 </manifest>
