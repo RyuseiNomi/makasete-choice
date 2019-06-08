@@ -1,8 +1,9 @@
 package com.teambrack.makasetechoice.di.modules
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import com.teambrack.makasetechoice.di.ViewModelKey
-import com.teambrack.makasetechoice.makegroup.MakeGroupFragment
+import com.teambrack.makasetechoice.makegroup.MakeGroupActivity
 import com.teambrack.makasetechoice.makegroup.MakeGroupViewModel
 import dagger.Binds
 import dagger.Module
@@ -10,17 +11,19 @@ import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.IntoMap
 
 @Module
-abstract class MakeGroupFragmentModule {
+abstract class MakeGroupActivityModule {
     @ContributesAndroidInjector(
         modules = [
-            MakeGroupFragmentSubModule::class
+            MakeGroupActivitySubModule::class
         ]
     )
-    abstract fun contributeMakeGroupFragment(): MakeGroupFragment
+    abstract fun contributeMakeGroupActivity(): MakeGroupActivity
 }
 
 @Module
-abstract class MakeGroupFragmentSubModule {
+abstract class MakeGroupActivitySubModule {
+    @Binds
+    abstract fun providesAppCompatActivity(makeGroupActivity: MakeGroupActivity): AppCompatActivity
     @Binds
     @IntoMap
     @ViewModelKey(MakeGroupViewModel::class)
