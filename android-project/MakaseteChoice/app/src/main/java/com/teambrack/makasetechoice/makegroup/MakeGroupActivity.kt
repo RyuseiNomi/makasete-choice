@@ -1,5 +1,7 @@
 package com.teambrack.makasetechoice.makegroup
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
@@ -47,6 +49,17 @@ class MakeGroupActivity : DaggerAppCompatActivity(){
         ).also {
             recyclerView.layoutManager = it
             recyclerView.adapter = adapter
+        }
+    }
+
+    companion object {
+        private fun createIntent(context: Context): Intent {
+            return Intent(context, MakeGroupActivity::class.java)
+        }
+
+        fun startActivity(context: Context) {
+            val intent = createIntent(context)
+            context.startActivity(intent)
         }
     }
 }

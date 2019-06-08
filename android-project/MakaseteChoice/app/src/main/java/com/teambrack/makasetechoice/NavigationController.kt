@@ -4,8 +4,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.teambrack.makasetechoice.data.entity.MemberEntity
 import com.teambrack.makasetechoice.data.repository.MemberRepository
-import com.teambrack.makasetechoice.makegroup.MakeGroupFragment
-import com.teambrack.makasetechoice.maketable.MakeTableFragment
+import com.teambrack.makasetechoice.makegroup.MakeGroupActivity
+import com.teambrack.makasetechoice.maketable.MakeTableActivity
 import javax.inject.Inject
 
 class NavigationController @Inject constructor(
@@ -13,19 +13,11 @@ class NavigationController @Inject constructor(
     private val memberRepository: MemberRepository
 ) {
     fun moveMakeTable() {
-        activity.supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_area, MakeTableFragment.newInstance(), MakeTableFragment.FRAGMENT_TAG)
-            addToBackStack(MakeTableFragment.FRAGMENT_TAG)
-            commit()
-        }
+        MakeTableActivity.startActivity(activity)
     }
 
     fun moveMakeGroup() {
-        activity.supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment_area, MakeGroupFragment.newInstance(), MakeGroupFragment.FRAGMENT_TAG)
-            addToBackStack(MakeGroupFragment.FRAGMENT_TAG)
-            commit()
-        }
+        MakeGroupActivity.startActivity(activity)
     }
 
     fun saveMember(members: List<MemberEntity>) {

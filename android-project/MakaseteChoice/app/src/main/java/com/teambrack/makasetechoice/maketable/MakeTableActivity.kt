@@ -1,5 +1,7 @@
 package com.teambrack.makasetechoice.maketable
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -41,6 +43,17 @@ class MakeTableActivity : DaggerAppCompatActivity() {
         ).also {
             recyclerView.layoutManager = it
             recyclerView.adapter = adapter
+        }
+    }
+
+    companion object {
+        private fun createIntent(context: Context): Intent {
+            return Intent(context, MakeTableActivity::class.java)
+        }
+
+        fun startActivity(context: Context) {
+            val intent = createIntent(context)
+            context.startActivity(intent)
         }
     }
 }
