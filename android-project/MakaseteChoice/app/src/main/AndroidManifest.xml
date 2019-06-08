@@ -18,6 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".makegroup.MakeGroupActivity"/>
+        <activity android:name=".maketable.MakeTableActivity"/>
     </application>
 
 </manifest>
