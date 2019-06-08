@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">MakaseteChoice</string>
+    <string name="home_name">まかせて⭐︎ちょいす</string>
+    <string name="make_group_name">グループ作成</string>
+    <string name="make_table_name">生徒表作成</string>
     <string name="make_table">生徒表作成</string>
     <string name="make_group">グループ作成</string>
     <string name="save">Save</string>
