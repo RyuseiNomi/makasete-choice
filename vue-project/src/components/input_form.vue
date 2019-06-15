@@ -10,7 +10,6 @@
       <input v-model="message" placeholder="名前を入力"><br>
       <p>最大人数を入力してください</p>
       <input v-model="message" placeholder="人数を入力">
-      <router-link class="button">チョイス☆する</router-link>
   </div>
 </template>
 
