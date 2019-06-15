@@ -23,7 +23,7 @@
 
 ```
 $ docker-compose build
-$ docker-comose up -d
+$ docker-compose up -d
 ```
 
 vueコンテナが立ち上がっていることを確認
