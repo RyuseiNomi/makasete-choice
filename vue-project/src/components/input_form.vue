@@ -1,7 +1,5 @@
 <template>
   <div class="people_name">
-      <h2>{{ msg }}</h2>
-      <p>編成の対象者を入力してください</p>
       <label>
           <input v-model="message" placeholder="名前を入力"><br>
           <input v-model="message" placeholder="名前を入力"><br>
@@ -19,9 +17,6 @@
 
 <script>
 export default {
-  name: 'InputForm',
-  props: {
-    msg: String
-  }
+  name: 'InputForm'
 }
 </script>

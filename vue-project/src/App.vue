@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <InputForm msg="まかせて☆チョイス"/>
+    <h2>まかせて☆チョイス</h2>
+    <p>編成の対象者を入力してください</p>
+    <InputForm />
     <ChoiceButton />
   </div>
 </template>
