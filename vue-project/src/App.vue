@@ -2,21 +2,17 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h2>まかせて☆チョイス</h2>
-    <p>編成の対象者を入力してください</p>
-    <InputForm />
-    <ChoiceButton />
+    <MakaseteChoice/>
   </div>
 </template>
 
 <script>
-import InputForm from './components/input_form.vue'
-import ChoiceButton from './components/choice_button.vue'
+  import MakaseteChoice from './components/MakaseteChoice.vue'
 
-export default {
+  export default {
   name: 'app',
   components: {
-    InputForm,
-    ChoiceButton
+    MakaseteChoice
   }
 }
 </script>
