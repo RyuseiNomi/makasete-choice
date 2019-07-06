@@ -1,6 +1,6 @@
 <template>
   <div class="decide">
-      <input type="button" value="チョイス☆する">
+      <input type="button" value="チョイス☆する" @click="$emit('choice')">
   </div>
 </template>
 
