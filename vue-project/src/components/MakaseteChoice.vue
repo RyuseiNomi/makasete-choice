@@ -26,6 +26,7 @@
     import InputForm from './input_form.vue'
     import ChoiceButton from './choice_button.vue'
     import InputSplitNum from './InputSplitNum.vue'
+    import GroupedView from './GroupedView.vue'
 
     export default {
         data() {
@@ -56,7 +57,8 @@
         components: {
             InputForm,
             ChoiceButton,
-            InputSplitNum
+            InputSplitNum,
+            GroupedView
         },
         methods: {
             choice() {
