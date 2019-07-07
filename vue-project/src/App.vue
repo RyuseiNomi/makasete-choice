@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <InputForm msg="まかせて☆チョイス"/>
+    <ChoiceButton />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import InputForm from './components/input_form.vue'
+import ChoiceButton from './components/choice_button.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    InputForm,
+    ChoiceButton
   }
 }
 </script>
