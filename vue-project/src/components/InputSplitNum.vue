@@ -5,6 +5,7 @@
             <input type="number"
                    placeholder="組み分け数を入力"
                    v-model.number="splitNum"
+                   v-on:input="observeSplitNum"
             />
         </label>
     </div>
@@ -16,6 +17,11 @@
         data() {
             return {
                 splitNum: 1
+            }
+        },
+        methods: {
+            observeSplitNum() {
+                this.$emit('child-event', this.splitNum)
             }
         }
 

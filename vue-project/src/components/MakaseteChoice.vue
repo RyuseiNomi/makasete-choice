@@ -45,6 +45,9 @@
         },
         methods: {
             choice() {
+            },
+            observerSplitNum(splitNum){
+                this.splitNum = splitNum
             }
         }
     }
