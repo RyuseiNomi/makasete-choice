@@ -1,31 +1,29 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <InputForm msg="まかせて☆チョイス"/>
-    <ChoiceButton />
+    <h2>まかせて☆チョイス</h2>
+    <MakaseteChoice/>
   </div>
 </template>
 
 <script>
-import InputForm from './components/input_form.vue'
-import ChoiceButton from './components/choice_button.vue'
+  import MakaseteChoice from './components/MakaseteChoice.vue'
 
-export default {
-  name: 'app',
-  components: {
-    InputForm,
-    ChoiceButton
+  export default {
+    name: 'app',
+    components: {
+      MakaseteChoice
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>
