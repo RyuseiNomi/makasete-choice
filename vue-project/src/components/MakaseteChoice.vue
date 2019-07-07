@@ -4,6 +4,21 @@
         <InputForm v-for="(name,id) in members" :key='id' :member="name" />
         <InputSplitNum v-on:child-event="observerSplitNum" />
         <ChoiceButton @choice="choice" />
+        <table border="1" align="center">
+            <thead>
+                <tr>
+                    <th v-for="(grouped,index) in shuffleMembers" :key="index">
+                        {{grouped.number}}
+                    </th>
+                </tr>
+            </thead>
+            <tr>
+                <td v-for="(grouped,index) in shuffleMembers" :key="index">
+                    <GroupedView :groupedMember="grouped.members" />
+                </td>
+            </tr>
+        </table>
+
     </div>
 </template>
 
@@ -45,6 +60,22 @@
         },
         methods: {
             choice() {
+                if (this.splitNum <=0 || this.splitNum > this.members.length) return;
+                this.shuffleMembers = [];
+                let randomMember = shuffle(this.members).map(member=>member.name);
+                for (let i = 0; i < randomMember.length; i++) {
+                    let index = i % this.splitNum;
+                    if (!this.shuffleMembers[index]) {
+                        this.shuffleMembers[index] = {}
+                    }
+                    if (!this.shuffleMembers[index]['number']) {
+                        this.shuffleMembers[index]['number'] = index;
+                    }
+                    if(!this.shuffleMembers[index]['members']){
+                        this.shuffleMembers[index]['members'] = []
+                    }
+                    this.shuffleMembers[index]['members'].push(randomMember[i]);
+                }
             },
             observerSplitNum(splitNum){
                 this.splitNum = splitNum
