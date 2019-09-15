@@ -49,6 +49,8 @@ dependencies {
     kaptAndroidTest "com.google.dagger:dagger-compiler:$dagger2Version"
     //data-binding
     kapt "com.android.databinding:compiler:$androidGradlePluginVersion"
+    //Android KTX
+    implementation "androidx.core:core-ktx:$androidKtx"
 
     //Test
     testImplementation 'junit:junit:4.12'
