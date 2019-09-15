@@ -16,7 +16,7 @@ class MemberRepository(
     private var cacheMembers: List<MemberEntity> = listOf()
 
     fun saveMembers(members: List<MemberEntity>): Boolean {
-        saveLocal(members).also {
+        saveSharedPreferences(members).also {
             cacheMembers = members
         }
         return !cacheMembers.isNullOrEmpty()
@@ -24,15 +24,15 @@ class MemberRepository(
 
     fun loadMembers(): List<MemberEntity> {
         return if (cacheMembers.isNullOrEmpty()) {
-            loadLocal().also {
-                cacheMembers = it
+            loadSharedPreferences().also { loadingMembers ->
+                cacheMembers = loadingMembers
             }
         } else {
             cacheMembers
         }
     }
 
-    private fun saveLocal(members: List<MemberEntity>) {
+    private fun saveSharedPreferences(members: List<MemberEntity>) {
         context.getSharedPreferences(
             PREFERENCES_NAME,
             Context.MODE_PRIVATE
@@ -44,7 +44,7 @@ class MemberRepository(
         }
     }
 
-    private fun loadLocal(): List<MemberEntity> {
+    private fun loadSharedPreferences(): List<MemberEntity> {
         return context.getSharedPreferences(
             PREFERENCES_NAME,
             Context.MODE_PRIVATE
