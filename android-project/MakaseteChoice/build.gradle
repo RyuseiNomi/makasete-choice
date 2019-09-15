@@ -6,6 +6,7 @@ project.ext.set("minSdkVersion", 21)
 project.ext.set("targetSdkVersion", 28)
 project.ext.set("architectureComponentsVersion", "2.2.0-alpha04")
 project.ext.set("androidKtx", "1.1.0")
+project.ext.set("kotshi", "2.0.1")
 project.ext.set("dagger2Version", "2.16")
 
 buildscript {
